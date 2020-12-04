@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import work.srthex7.mcraft.commons.jologram.hologram.Hologram;
 import work.srthex7.mcraft.commons.jologram.instance.HologramBuilder;
 import work.srthex7.mcraft.commons.jologram.instance.Jologram;
-import work.srthex7.mcraft.commons.jologram.instance.JologramBuilder;
+import work.srthex7.mcraft.commons.jologram.instance.JologramInstance;
 
 public class HologramAPI extends JavaPlugin implements Listener{
 	
@@ -18,7 +18,7 @@ public class HologramAPI extends JavaPlugin implements Listener{
 	@Override
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(this, this);
-		jologram = JologramBuilder.newInstance(this).renderDistance(10).hologramIndentation(0.2).checkTime(1).build();
+		jologram = JologramInstance.newInstance(this).renderDistance(10).hologramIndentation(0.2).checkTime(1).build();
 	}
 	
 	@EventHandler

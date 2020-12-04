@@ -2,32 +2,32 @@ package work.srthex7.mcraft.commons.jologram.instance;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class JologramBuilder {
+public class JologramInstance {
 	
 	private JavaPlugin plugin;
 	private double renderDistance = -1;
 	private double hologramIndentation = 0.2;
 	private long checkTime = 20l;
 	
-	JologramBuilder(JavaPlugin plugin) {
+	JologramInstance(JavaPlugin plugin) {
 		this.plugin = plugin;
 	}
 	
-	public static JologramBuilder newInstance(JavaPlugin plugin) {
-		return new JologramBuilder(plugin);
+	public static JologramInstance newInstance(JavaPlugin plugin) {
+		return new JologramInstance(plugin);
 	}
 	
-	public JologramBuilder renderDistance(double renderDistance) {
+	public JologramInstance renderDistance(double renderDistance) {
 		this.renderDistance = renderDistance*renderDistance;
 		return this;
 	}
 	
-	public JologramBuilder hologramIndentation(double hologramIndentation) {
+	public JologramInstance hologramIndentation(double hologramIndentation) {
 		this.hologramIndentation = hologramIndentation;
 		return this;
 	}
 	
-	public JologramBuilder checkTime(long ticks) {
+	public JologramInstance checkTime(long ticks) {
 		this.checkTime = ticks;
 		return this;
 	}
