@@ -6,8 +6,9 @@ import java.util.List;
 
 import org.bukkit.Location;
 
-import work.srthex7.mcraft.commons.jologram.hologram.CraftHologram2;
+import work.srthex7.mcraft.commons.jologram.hologram.CraftHologram;
 import work.srthex7.mcraft.commons.jologram.hologram.CraftRawHologram;
+import work.srthex7.mcraft.commons.jologram.hologram.Hologram;
 import work.srthex7.mcraft.commons.jologram.hologram.RawHologram;
 
 public class HologramBuilder {
@@ -42,7 +43,7 @@ public class HologramBuilder {
 		return this;
 	}
 	
-	public CraftHologram2 build() {
+	public Hologram build() {
 		List<RawHologram> bHolo = new ArrayList<>();
 		
 		for (String line : lines) {
@@ -51,7 +52,7 @@ public class HologramBuilder {
 		
 		this.lines = null;
 		
-		CraftHologram2 craftHologram = new CraftHologram2(location, indentation, bHolo);
+		CraftHologram craftHologram = new CraftHologram(location, indentation, bHolo);
 		jologram.addCraftHologram(craftHologram);
 		return craftHologram;
 	}

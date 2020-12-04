@@ -9,8 +9,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import work.srthex7.mcraft.commons.jologram.hologram.CraftHologram2;
+import work.srthex7.mcraft.commons.jologram.hologram.CraftHologram;
 import work.srthex7.mcraft.commons.jologram.hologram.CraftRawHologram;
+import work.srthex7.mcraft.commons.jologram.hologram.Hologram;
 import work.srthex7.mcraft.commons.jologram.hologram.RawHologram;
 
 public class Jologram {
@@ -19,7 +20,7 @@ public class Jologram {
 	private double hologramIndentation = 0.2;
 	private double renderDistance;
 	private long checkTime = 20;
-	private Set<CraftHologram2> craftHolograms;
+	private Set<CraftHologram> craftHolograms;
 	
 	Jologram(JavaPlugin plugin, double renderDistance, double hologramIndentation, long checkTime) { 
 		this.plugin = plugin;
@@ -45,7 +46,7 @@ public class Jologram {
 		return this.checkTime;
 	}
 	
-	public Set<CraftHologram2> getCraftHolograms() {
+	public Set<CraftHologram> getCraftHolograms() {
 		return craftHolograms;
 	}
 	
@@ -57,28 +58,28 @@ public class Jologram {
 		return new HologramBuilder(this);
 	}
 	
-	public CraftHologram2 createHologram(Location location, double indentation, List<String> lines) {
+	public Hologram createHologram(Location location, double indentation, List<String> lines) {
 		List<RawHologram> raw = new ArrayList<>();
 		for (String line : lines) {
 			raw.add(new CraftRawHologram(line));
 		}
 		
-		CraftHologram2 craftHologram = new CraftHologram2(location, indentation, raw);
+		CraftHologram craftHologram = new CraftHologram(location, indentation, raw);
 		
 		addCraftHologram(craftHologram);
 		
 		return craftHologram;
 	}
 	
-	public CraftHologram2 createHologram(Location location, List<String> lines) {
+	public Hologram createHologram(Location location, List<String> lines) {
 		return createHologram(location, hologramIndentation, lines);
 	}
 	
-	public CraftHologram2 createHologram(Location location, double indentation, String... lines) {
+	public Hologram createHologram(Location location, double indentation, String... lines) {
 		return createHologram(location, indentation, Arrays.asList(lines));
 	}
 	
-	public CraftHologram2 createHologram(Location location, String... lines) {
+	public Hologram createHologram(Location location, String... lines) {
 		return createHologram(location, hologramIndentation, Arrays.asList(lines));
 	}
 	
@@ -88,11 +89,11 @@ public class Jologram {
 	//			Metodos internos
 	// =======================================
 	
-	protected void addCraftHologram(CraftHologram2 craftHologram) {
+	protected void addCraftHologram(CraftHologram craftHologram) {
 		this.craftHolograms.add(craftHologram);
 	}
 	
-	private void removeCraftHologram(CraftHologram2 craftHologram) {
+	private void removeCraftHologram(CraftHologram craftHologram) {
 		this.craftHolograms.add(craftHologram);
 	}
 	

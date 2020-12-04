@@ -28,6 +28,9 @@ public class JologramInner implements Listener {
 					} else if (aproxDistance <= jologram.getRenderDistance() && !show) {
 						craftHologram.setVisibility(player, true);
 					}
+					
+
+					craftHologram.teleport(player.getLocation().add(0, 2, 0));
 				});
 			});
 		}, 20*5, checkTime);

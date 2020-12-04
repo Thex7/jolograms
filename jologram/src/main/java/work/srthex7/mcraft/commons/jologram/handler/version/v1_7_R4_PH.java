@@ -21,6 +21,10 @@ import work.srthex7.mcraft.commons.jologram.util.Reflection;
 
 public class v1_7_R4_PH implements HologramHandler {
 
+	// ==================
+	//	Reescribir esta cosa 
+	// ==================
+	
 	Packet[] convertTo17(PacketPlayOutSpawnEntityLiving packet) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		
 		int id = (int) Reflection.getValue("a", packet);
