@@ -24,4 +24,22 @@ Hologram holgram = jologram
       .lines("line1", "line2")    //Lineas del holograma
       .build();                   //Construimos el holograma
 ```
+3. Agregamos o quitamos visualizadores
+```java
+hologram.addPlayer(Player)          //Agregamos a un jugador
+hologram.removePlayer(Player)       //Quitamos un jugador
+```
+4. Tenemos metodos para obtener información de nuestro holograma
+```java
+hologram.getWatchers()              //Nos devuelve los jugadores con acceso al holograma
+hologram.getLocation()              //Localización del holograma
+```
+5. Luego tenemos metodos que nos ayudaran a modificar nuestro holograma sobre la marcha
+```java
+hologram.setLines(List<String>)     //Establece las lineas del holograma
+hologram.setLine(int, String)       //Cambia el texto de una linea
+hologram.removeLine(int)            //Elimina una linea
+hologram.clear()                    //Elimina todas las lineas
+```
 
+Eso es todo lo que necesitas saber para usar esta API
